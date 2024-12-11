@@ -96,3 +96,42 @@ function somar(numero1: number, numero2:  number): number {
 };
 
 console.log(somar(5,10));
+
+// Utility Types: A ideia desle é permitir que voce crie novos tipos a partir de tipos já existentes
+
+// 1. Partial
+
+type PersonPatial = Partial<Person>; //Deixa opicional
+
+// 2. Required
+
+type PersonRequired = Required<Person>; //Deixa Obrigatorio
+
+// 3. Pick
+
+type PersonPicked = Pick<Person, 'nome' | 'idade'>;
+
+// 4. Omit
+
+type PersonOmit = Omit<Person, 'profissao'>;
+
+// 5. Exclude
+
+type CriterioExclude = Exclude<Criterio, 'greater'>;
+
+// 6. Record
+
+type Pessoas = Record<string, Person>;
+
+const pessoas: Pessoas = {
+    "123.456.789-00": {
+        nome: "Fulano",
+        idade: 20,
+        altura: 1.80,
+    },
+    "123.456.789-01": {
+        nome: "Fulana",
+        idade: 19,
+        altura: 1.60,
+    }
+};
