@@ -39,11 +39,33 @@ console.log(buttonDiminuir.classList);
 
 const themeButton = document.querySelector("#theme");
 
-let darkTheme = false; 
+let darkTheme;
+
+//Definindo uma fucao que sera executada ao carregar o conteudo da janela!
+window.onload = () => {
+    const isDarkThemeStorage = localStorage.getItem('isDarkTheme');
+
+    darkTheme = isDarkThemeStorage === 'true';
+
+    //isDarkThemeStorage = "true" => true
+    //isDarkThemeStorage = "flase" => false
+    //isDarkThemeStorage = null => false
+
+    const body =  document.querySelector('body');
+
+    if (darkTheme) {
+        body.style.background = "black";
+        body.style.color = "white";
+    } else {
+        body.style.background = "white";
+        body.style.color = "black";
+    }
+};
 
 themeButton.addEventListener('click', () => {
-
     darkTheme = !darkTheme;
+
+    localStorage.setItem('isDarkTheme', darkTheme);
 
     const body =  document.querySelector('body');
 
